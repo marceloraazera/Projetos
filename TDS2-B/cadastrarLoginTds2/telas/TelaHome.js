@@ -8,12 +8,13 @@ export default function TelaHome() {
     signOut(autenticacao);
   };
 
+  const nomeUsuario = autenticacao.currentUser?.displayName || 'Usuário';
+
   return (
     <View style={estilos.background}>
       <View style={estilos.card}>
-        <Text style={estilos.title}>Bem-vindo</Text>
-        <Text style={estilos.email}>{autenticacao.currentUser?.email}</Text>
-        <Text style={estilos.subtitle}>Sua sessão foi iniciada com sucesso.</Text>
+        <Text style={estilos.header}>Bem-vindo, {nomeUsuario}!</Text>
+        <Text style={estilos.subtitle}>Você está autenticado.</Text>
 
         <TouchableOpacity style={estilos.button} onPress={fazerLogout}>
           <Text style={estilos.buttonText}>Sair</Text>
@@ -26,7 +27,7 @@ export default function TelaHome() {
 const estilos = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#eaf0ff',
+    backgroundColor: '#e8f0ff',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -37,35 +38,30 @@ const estilos = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 28,
     padding: 28,
-    shadowColor: '#c9d9ff',
+    shadowColor: '#aac2ff',
     shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.16,
+    shadowOpacity: 0.18,
     shadowRadius: 24,
-    elevation: 10,
+    elevation: 12,
   },
-  title: {
+  header: {
     fontSize: 28,
     fontWeight: '700',
     color: '#2f4db7',
-    marginBottom: 6,
-  },
-  email: {
-    color: '#4f6abf',
-    marginBottom: 10,
-    fontSize: 16,
+    marginBottom: 8,
   },
   subtitle: {
-    color: '#7a89b6',
+    color: '#6b7aad',
+    marginBottom: 24,
     fontSize: 15,
     lineHeight: 22,
-    marginBottom: 24,
   },
   button: {
     backgroundColor: '#4f6abf',
     borderRadius: 18,
     paddingVertical: 16,
     alignItems: 'center',
-    justifyContent: 'center',
+    marginTop: 6,
   },
   buttonText: {
     color: '#fff',

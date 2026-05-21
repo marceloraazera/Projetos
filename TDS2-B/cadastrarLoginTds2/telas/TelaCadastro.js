@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { View, TextInput, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
 import { autenticacao } from '../config/firebaseConfig';
 
 export default function TelaCadastro({ navigation }) {
+  const [nome, setNome] = useState('');
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [erro, setErro] = useState('');
 
   const fazerCadastro = async () => {
     try {
-      await createUserWithEmailAndPassword(autenticacao, email, senha);
+      const usuarioCriado = await createUserWithEmailAndPassword(autenticacao, email, senha);
+      await updateProfile(usuarioCriado.user, {
+        displayName: nome,
+      });
       navigation.navigate('Login');
     } catch (erro) {
       setErro('Erro ao cadastrar. Tente novamente.');
@@ -21,7 +25,18 @@ export default function TelaCadastro({ navigation }) {
     <View style={estilos.background}>
       <View style={estilos.card}>
         <Text style={estilos.header}>Crie sua conta</Text>
-        <Text style={estilos.subtitle}>Use seu email para cadastrar e começar.</Text>
+        <Text style={estilos.subtitle}>Preencha os campos para criar seu usuário.</Text>
+
+        <View style={estilos.field}>
+          <Text style={estilos.label}>Nome</Text>
+          <TextInput
+            style={estilos.input}
+            placeholder="Seu nome"
+            placeholderTextColor="#7b8bbd"
+            value={nome}
+            onChangeText={setNome}
+          />
+        </View>
 
         <View style={estilos.field}>
           <Text style={estilos.label}>Email</Text>
@@ -53,7 +68,7 @@ export default function TelaCadastro({ navigation }) {
         </TouchableOpacity>
 
         <View style={estilos.footer}>
-          <Text style={estilos.footerText}>Já possui conta?</Text>
+          <Text style={estilos.footerText}>Já tem conta?</Text>
           <TouchableOpacity onPress={() => navigation.navigate('Login')}>
             <Text style={estilos.footerLink}>Entrar</Text>
           </TouchableOpacity>
@@ -66,7 +81,7 @@ export default function TelaCadastro({ navigation }) {
 const estilos = StyleSheet.create({
   background: {
     flex: 1,
-    backgroundColor: '#eef3ff',
+    backgroundColor: '#e8f0ff',
     justifyContent: 'center',
     alignItems: 'center',
     padding: 20,
@@ -77,11 +92,11 @@ const estilos = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderRadius: 28,
     padding: 28,
-    shadowColor: '#c9d9ff',
+    shadowColor: '#aac2ff',
     shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.16,
+    shadowOpacity: 0.18,
     shadowRadius: 24,
-    elevation: 10,
+    elevation: 12,
   },
   header: {
     fontSize: 28,
@@ -105,7 +120,7 @@ const estilos = StyleSheet.create({
     fontWeight: '600',
   },
   input: {
-    backgroundColor: '#f4f8ff',
+    backgroundColor: '#f2f6ff',
     borderRadius: 16,
     paddingHorizontal: 16,
     paddingVertical: 14,
