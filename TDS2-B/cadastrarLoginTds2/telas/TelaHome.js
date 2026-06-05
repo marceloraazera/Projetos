@@ -19,6 +19,10 @@ export default function TelaHome() {
         <TouchableOpacity style={estilos.button} onPress={fazerLogout}>
           <Text style={estilos.buttonText}>Sair</Text>
         </TouchableOpacity>
+
+        <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={()=> navigation.navigate('Perfil')}>
+            <Text style={estilos.buttonText}>Perfil</Text>
+          </TouchableOpacity>
       </View>
     </View>
   );
