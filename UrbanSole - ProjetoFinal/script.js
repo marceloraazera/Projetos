@@ -1,43 +1,45 @@
 // Roda toda vez que a página carrega
 window.onload = function() {
-    var nome = localStorage.getItem("nomeDoUsuario");
-    var temConta = localStorage.getItem("contaCriada");
+    let nome = localStorage.getItem("nomeDoUsuario");
     
-    var botaoLogin = document.getElementById("btn-autenticacao");
+    let botaoLogin = document.getElementById("btn-autenticacao");
     
-    // IF/ELSE que você pediu para mudar o texto do botão
-    if (botaoLogin != null) {
-        if (nome != null) {
+    if (botaoLogin !== null) {
+        if (nome !== null) {
             // Se o usuário está logado
-            botaoLogin.innerHTML = "Minha Conta";
+            botaoLogin.innerHTML = "Logado";
             botaoLogin.onclick = function() { window.location.href = "usuario.html"; };
         } else {
-            // Se NÃO está logado, verificamos se ele já criou conta alguma vez
-            if (temConta == "sim") {
-                botaoLogin.innerHTML = "Login";
-                botaoLogin.onclick = function() { window.location.href = "login.html"; };
-            } else {
-                botaoLogin.innerHTML = "Cadastrar";
-                botaoLogin.onclick = function() { window.location.href = "cadastro.html"; };
-            }
+            // Se NÃO está logado
+            botaoLogin.innerHTML = "Cadastro / Login";
+            botaoLogin.onclick = function() { window.location.href = "login.html"; };
         }
     }
     
     // Mostra o nome na tela de usuário
-    var textoNome = document.getElementById("nome-usuario");
-    if (textoNome != null && nome != null) {
+    let textoNome = document.getElementById("nome-usuario");
+    if (textoNome !== null && nome !== null) {
         textoNome.innerHTML = nome;
     }
     
     // Mostra a faixa de promoção na página inicial
-    var banner = document.getElementById("banner-promocao");
-    if (banner != null && nome != null) {
+    let banner = document.getElementById("banner-promocao");
+    if (banner !== null && nome !== null) {
         banner.style.display = "block";
     }
 };
 
 function fazerLogin() {
-    var nome = document.getElementById("nome-login").value;
+    let elementoNome = document.getElementById("nome-login");
+    let nome = "";
+    
+    if (elementoNome !== null) {
+        nome = elementoNome.value;
+    }
+    
+    if (nome.trim() === "") {
+        nome = "Visitante";
+    }
     
     // Salva o nome no navegador
     localStorage.setItem("nomeDoUsuario", nome);
@@ -46,19 +48,25 @@ function fazerLogin() {
 }
 
 function fazerCadastro() {
-    var nome = document.getElementById("nome-cadastro").value;
+    let elementoNome = document.getElementById("nome-cadastro");
+    let nome = "";
+    
+    if (elementoNome !== null) {
+        nome = elementoNome.value;
+    }
+    
+    if (nome.trim() === "") {
+        nome = "Visitante";
+    }
     
     // Salva o nome no navegador
     localStorage.setItem("nomeDoUsuario", nome);
-    
-    // Marca que esse navegador já tem um cadastro registrado
-    localStorage.setItem("contaCriada", "sim");
     
     window.location.href = "usuario.html";
 }
 
 function sair() {
-    // Apaga apenas o nome (o usuário desloga, mas a marca de que "temConta" continua lá)
+    // Apaga apenas o nome
     localStorage.removeItem("nomeDoUsuario");
     
     window.location.href = "index.html";
@@ -66,34 +74,44 @@ function sair() {
 
 // Carrossel Simples
 function irParaSlide(indice) {
-    document.getElementById("slide0").style.display = "none";
-    document.getElementById("slide1").style.display = "none";
-    document.getElementById("slide2").style.display = "none";
+    let slide0 = document.getElementById("slide0");
+    let slide1 = document.getElementById("slide1");
+    let slide2 = document.getElementById("slide2");
     
-    document.getElementById("bolinha0").className = "bolinha";
-    document.getElementById("bolinha1").className = "bolinha";
-    document.getElementById("bolinha2").className = "bolinha";
+    if (slide0 !== null) slide0.style.display = "none";
+    if (slide1 !== null) slide1.style.display = "none";
+    if (slide2 !== null) slide2.style.display = "none";
     
-    if (indice == 0) {
-        document.getElementById("slide0").style.display = "block";
-        document.getElementById("bolinha0").className = "bolinha ativa";
+    let bolinha0 = document.getElementById("bolinha0");
+    let bolinha1 = document.getElementById("bolinha1");
+    let bolinha2 = document.getElementById("bolinha2");
+    
+    if (bolinha0 !== null) bolinha0.className = "bolinha";
+    if (bolinha1 !== null) bolinha1.className = "bolinha";
+    if (bolinha2 !== null) bolinha2.className = "bolinha";
+    
+    if (indice === 0) {
+        if (slide0 !== null) slide0.style.display = "block";
+        if (bolinha0 !== null) bolinha0.className = "bolinha ativa";
     }
-    if (indice == 1) {
-        document.getElementById("slide1").style.display = "block";
-        document.getElementById("bolinha1").className = "bolinha ativa";
+    if (indice === 1) {
+        if (slide1 !== null) slide1.style.display = "block";
+        if (bolinha1 !== null) bolinha1.className = "bolinha ativa";
     }
-    if (indice == 2) {
-        document.getElementById("slide2").style.display = "block";
-        document.getElementById("bolinha2").className = "bolinha ativa";
+    if (indice === 2) {
+        if (slide2 !== null) slide2.style.display = "block";
+        if (bolinha2 !== null) bolinha2.className = "bolinha ativa";
     }
 }
 
 // FAQ
 function alternarFaq(idDaResposta) {
-    var resposta = document.getElementById(idDaResposta);
-    if (resposta.style.display == "block") {
-        resposta.style.display = "none";
-    } else {
-        resposta.style.display = "block";
+    let resposta = document.getElementById(idDaResposta);
+    if (resposta !== null) {
+        if (resposta.style.display === "block") {
+            resposta.style.display = "none";
+        } else {
+            resposta.style.display = "block";
+        }
     }
 }
