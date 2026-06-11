@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanSole | Início</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho Centralizado -->
+    <header class="cabecalho">
+        <!-- Esquerda: Logo -->
+        <div class="logo-container" style="flex: 1; display: flex; justify-content: flex-start;">
+            <a href="index.html">
+                <img src="media__1781185936647.png" alt="UrbanSole Logo" class="logo">
+            </a>
+        </div>
+        
+        <!-- Centro: Explorar -->
+        <div style="flex: 1; display: flex; justify-content: center;">
+            <a href="#estilos-tenis" class="btn-texto" style="font-weight: bold; text-decoration: none; font-size: 18px;">Explorar</a>
+        </div>
+        
+        <!-- Direita: Cadastro / Login -->
+        <div style="flex: 1; display: flex; justify-content: flex-end;">
+            <button id="btn-autenticacao" class="btn-secundario" onclick="window.location.href='login.html'">Carregando...</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Faixa de Promoção (Aparece após login via JavaScript) -->
+        <div id="banner-promocao" style="display: none;">
+            <p>🎉 Benefícios Ativos: Você tem Frete Grátis e 50% de Desconto! 🎉</p>
+        </div>
+
+        <!-- 1. Seção de Destaque (Descontos) antes do carrossel -->
+        <section class="destaque">
+            <div class="texto-destaque">
+                <h1>UrbanSole agora no Brasil!</h1>
+                <p class="subtitulo">Celebrando a expansão (EUA, Chile, Itália e Brasil)!</p>
+                <p class="promocao-texto">Descontos de até <strong>50%</strong> e <strong>Frete Grátis</strong> em todos os calçados até Julho de 2024.</p>
+                <button class="btn-primario btn-grande" onclick="rolarParaProdutos()">Explorar Estilos</button>
+            </div>
+            <div class="imagem-destaque">
+                <img src="hero_shoe_1781186021423.png" alt="Tênis Principal">
+            </div>
+        </section>
+
+        <!-- 2. Carrossel -->
+        <section class="secao-escura">
+            <h2>Lançamentos</h2>
+            <div class="carrossel-container">
+                <div class="janela-carrossel">
+                    <div id="slide0" style="display: block;">
+                        <img src="carousel_shoe_1_1781186032982.png" alt="Tênis 1">
+                    </div>
+                    <div id="slide1" style="display: none;">
+                        <img src="carousel_shoe_2_1781186042578.png" alt="Tênis 2">
+                    </div>
+                    <div id="slide2" style="display: none;">
+                        <img src="carousel_shoe_3_1781186054525.png" alt="Tênis 3">
+                    </div>
+                </div>
+
+                <div id="bolinhas-carrossel" class="bolinhas-container">
+                    <span id="bolinha0" class="bolinha ativa" onclick="irParaSlide(0)"></span>
+                    <span id="bolinha1" class="bolinha" onclick="irParaSlide(1)"></span>
+                    <span id="bolinha2" class="bolinha" onclick="irParaSlide(2)"></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Estilos de Tênis -->
+        <section id="estilos-tenis" class="secao-produtos">
+            <h2>Conheça Nossos Estilos</h2>
+            <div class="grade-estilos">
+                <div class="cartao-estilo">
+                    <img src="carousel_shoe_1_1781186032982.png" alt="Tênis de Corrida">
+                    <h3>Corrida</h3>
+                    <p>Desempenho máximo para suas atividades físicas. Muito leve e confortável.</p>
+                </div>
+                <div class="cartao-estilo">
+                    <img src="carousel_shoe_2_1781186042578.png" alt="Tênis Casual">
+                    <h3>Casual</h3>
+                    <p>O conforto urbano encontra o luxo. Perfeito para o dia a dia.</p>
+                </div>
+                <div class="cartao-estilo">
+                    <img src="carousel_shoe_3_1781186054525.png" alt="Tênis Futurista">
+                    <h3>Futurista</h3>
+                    <p>Design arrojado e moderno. Seja o centro das atenções.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Depoimentos -->
+        <section class="secao-depoimentos secao-escura">
+            <h2>Depoimentos de Clientes</h2>
+            <div class="grade-depoimentos">
+                <div class="cartao-depoimento">
+                    <p>"Produto fantástico e entrega muito rápida!"</p>
+                    <span>- Carlos, SP</span>
+                </div>
+                <div class="cartao-depoimento">
+                    <p>"Os 50% de desconto valeram muito a pena."</p>
+                    <span>- Ana, RJ</span>
+                </div>
+                <div class="cartao-depoimento">
+                    <p>"Frete grátis me fez fechar a compra na hora."</p>
+                    <span>- Roberto, MG</span>
+                </div>
+                <div class="cartao-depoimento">
+                    <p>"Tênis idêntico à foto, conforto absoluto."</p>
+                    <span>- Juliana, PR</span>
+                </div>
+                <div class="cartao-depoimento">
+                    <p>"Sempre comprei fora, ótimo ter no Brasil agora."</p>
+                    <span>- Marcos, SC</span>
+                </div>
+                <div class="cartao-depoimento">
+                    <p>"Comprei pra família toda, qualidade 100%."</p>
+                    <span>- Fernanda, BA</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Perguntas Frequentes -->
+        <section class="secao-faq">
+            <h2>Perguntas Frequentes</h2>
+            <div class="lista-faq">
+                <div class="item-faq">
+                    <button class="pergunta-faq" onclick="alternarFaq('faq1')">Até quando vão as promoções?</button>
+                    <div id="faq1" class="resposta-faq" style="display: none;">
+                        <p>As promoções vão até Julho de 2024.</p>
+                    </div>
+                </div>
+                <div class="item-faq">
+                    <button class="pergunta-faq" onclick="alternarFaq('faq2')">Como conseguir frete grátis?</button>
+                    <div id="faq2" class="resposta-faq" style="display: none;">
+                        <p>Basta criar uma conta ou fazer login!</p>
+                    </div>
+                </div>
+                <div class="item-faq">
+                    <button class="pergunta-faq" onclick="alternarFaq('faq3')">A loja tem endereço físico?</button>
+                    <div id="faq3" class="resposta-faq" style="display: none;">
+                        <p>Não. Somos 100% digitais.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <p>Acesse também no <strong>Mercado Livre</strong> e <strong>Amazon</strong></p>
+        <p>Siga-nos: <strong>Instagram</strong> | <strong>Facebook</strong></p>
+        <p>Presente em: Brasil | EUA | Chile | Itália</p>
+        <p class="aviso-rodape">Loja 100% online. Não possuímos endereço físico.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

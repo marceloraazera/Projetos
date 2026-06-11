@@ -1,13 +1,13 @@
-let perguntas = document.querySelector(".pergunta")
+let perguntas = document.querySelectorAll(".pergunta")
 
 perguntas.forEach(function(pergunta) {
     pergunta.addEventListener("click", function() {
-        let resposta = pergunta.nextElementSibiling
+        let resposta = pergunta.nextElementSibling
 
         if(resposta.style.display == "block") {
-            resposta.display.block = "none"
-        } else [
-            resposta.display.block = "block"
-        ]
+            resposta.style.display = "none"
+        } else {
+            resposta.style.display = "block"
+        }
     })
 })

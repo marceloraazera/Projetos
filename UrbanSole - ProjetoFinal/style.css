@@ -1,0 +1,408 @@
+/* Fontes e Reset Básico */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #121212; 
+    color: #f1f1f1;
+    line-height: 1.6;
+}
+
+/* Cabeçalho e Logo */
+.cabecalho {
+    display: flex;
+    justify-content: space-between; /* Distribui itens: Esquerda, Centro, Direita */
+    align-items: center;
+    background-color: #1a1a1a;
+    padding: 15px 5%;
+    border-bottom: 1px solid #333;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo-container {
+    cursor: pointer;
+}
+
+.logo {
+    height: 90px;
+    filter: invert(1); 
+    mix-blend-mode: screen; 
+}
+
+/* Pesquisa */
+.barra-pesquisa {
+    display: flex;
+}
+
+.barra-pesquisa input {
+    padding: 10px 15px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #444;
+    background-color: #2a2a2a;
+    color: white;
+    width: 250px;
+    outline: none;
+}
+
+.barra-pesquisa input:focus {
+    border-color: #ff5e00;
+}
+
+.barra-pesquisa button {
+    padding: 10px 20px;
+    background-color: #ff5e00;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 8px 8px 0;
+    font-weight: bold;
+}
+
+.barra-pesquisa button:hover {
+    background-color: #e05300;
+}
+
+/* Botões */
+.btn-primario {
+    background-color: #ff5e00;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.btn-primario:hover {
+    background-color: #e05300;
+}
+
+.btn-secundario {
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    border: 2px solid #555;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: border-color 0.3s;
+}
+
+.btn-secundario:hover {
+    border-color: #ff5e00;
+}
+
+.btn-texto {
+    background: none;
+    border: none;
+    color: #ff5e00;
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.btn-texto:hover {
+    color: #ff884d;
+}
+
+.btn-grande {
+    font-size: 18px;
+    padding: 15px 30px;
+    margin-top: 20px;
+}
+
+.btn-bloco {
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Destaque (Hero) */
+.destaque {
+    display: flex;
+    padding: 60px 5%;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(135deg, #121212, #1f1f1f);
+}
+
+.texto-destaque {
+    max-width: 50%;
+}
+
+.texto-destaque h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.subtitulo {
+    font-size: 20px;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+}
+
+.promocao-texto {
+    font-size: 18px;
+}
+
+.promocao-texto strong {
+    color: #ff5e00;
+}
+
+.imagem-destaque img {
+    height: 350px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+#banner-promocao {
+    background: linear-gradient(90deg, #ff5e00, #ff2a00);
+    text-align: center;
+    padding: 15px;
+    font-weight: bold;
+    color: white;
+    font-size: 18px;
+}
+
+/* Seções Gerais */
+.secao-escura {
+    background-color: #1a1a1a;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.secao-produtos {
+    background-color: #121212;
+    padding: 60px 5%;
+    text-align: center;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #ffffff;
+}
+
+/* Carrossel Simples */
+.carrossel-container {
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.janela-carrossel {
+    width: 800px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+/* Retirada a classe .trilha pois agora apenas mostramos/escondemos a imagem */
+
+.janela-carrossel img {
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+
+/* Bolinhas */
+.bolinhas-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.bolinha {
+    height: 15px;
+    width: 15px;
+    background-color: #555;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.bolinha:hover {
+    background-color: #888;
+}
+
+.bolinha.ativa {
+    background-color: #ff5e00;
+}
+
+/* Grade de Estilos */
+.grade-estilos {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cartao-estilo {
+    background-color: #1a1a1a;
+    width: 300px;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    border: 4px solid transparent; /* Bordas transparentes por padrão */
+    transition: transform 0.3s, border 0.3s, box-shadow 0.3s;
+}
+
+.cartao-estilo img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.cartao-estilo h3 {
+    margin-bottom: 10px;
+    color: #ff5e00;
+}
+
+/* Depoimentos */
+.grade-depoimentos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.cartao-depoimento {
+    background-color: #222;
+    padding: 25px;
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+.cartao-depoimento p {
+    font-style: italic;
+    color: #ddd;
+    margin-bottom: 15px;
+}
+
+.cartao-depoimento span {
+    font-weight: bold;
+    color: #ff5e00;
+}
+
+/* FAQ */
+.lista-faq {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.item-faq {
+    margin-bottom: 15px;
+}
+
+.pergunta-faq {
+    background-color: #222;
+    color: white;
+    border: 1px solid #333;
+    padding: 18px 20px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 18px;
+    text-align: left;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+}
+
+.pergunta-faq:hover {
+    background-color: #2a2a2a;
+}
+
+.resposta-faq {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-left: 4px solid #ff5e00;
+    text-align: left;
+    margin-top: 5px;
+    border-radius: 0 8px 8px 0;
+}
+
+/* Telas Login, Cadastro, Usuário */
+.caixa-formulario {
+    background-color: #1a1a1a;
+    width: 100%;
+    max-width: 450px;
+    margin: 60px auto;
+    padding: 40px;
+    text-align: center;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.caixa-formulario h2 {
+    margin-bottom: 25px;
+}
+
+.caixa-formulario label {
+    display: block;
+    text-align: left;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #ccc;
+}
+
+.caixa-formulario input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background-color: #222;
+    color: white;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.caixa-formulario input:focus {
+    border-color: #ff5e00;
+    outline: none;
+}
+
+.linha-divisao {
+    height: 1px;
+    background-color: #333;
+    margin: 25px 0;
+}
+
+.alerta-sucesso {
+    background-color: rgba(255, 94, 0, 0.1);
+    border: 1px solid #ff5e00;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Rodapé */
+.rodape {
+    background-color: #0a0a0a;
+    padding: 40px 5%;
+    text-align: center;
+    color: #888;
+    border-top: 1px solid #222;
+}
+
+.rodape p {
+    margin-bottom: 10px;
+}
+
+.rodape strong {
+    color: #ccc;
+}
+
+.aviso-rodape {
+    margin-top: 20px;
+    font-size: 14px;
+    font-style: italic;
+}

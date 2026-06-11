@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UrbanSole | Minha Conta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="cabecalho">
+        <div class="logo-container" style="flex: 1; display: flex; justify-content: flex-start;">
+            <a href="index.html">
+                <img src="media__1781185936647.png" alt="UrbanSole Logo" class="logo">
+            </a>
+        </div>
+        
+        <div style="flex: 1; display: flex; justify-content: center;">
+            <a href="index.html#estilos-tenis" class="btn-texto" style="font-weight: bold; text-decoration: none; font-size: 18px;">Explorar</a>
+        </div>
+        
+        <div style="flex: 1; display: flex; justify-content: flex-end;">
+            <button id="btn-autenticacao" class="btn-secundario" onclick="window.location.href='usuario.html'">Carregando...</button>
+        </div>
+    </header>
+
+    <main style="min-height: 70vh; display: flex; align-items: center;">
+        <div class="caixa-formulario">
+            <h2>Bem-vindo(a), <span id="nome-usuario"></span>! 👋</h2>
+            <div class="alerta-sucesso">
+                <p>Sua conta está ativa e os <strong>50% de desconto</strong> com <strong>Frete Grátis</strong> estão liberados!</p>
+            </div>
+            <button class="btn-primario btn-bloco" onclick="window.location.href='index.html'">Aproveitar Promoções</button>
+            <div class="linha-divisao"></div>
+            <button class="btn-secundario btn-bloco" onclick="sair()">Sair da Conta</button>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+        <p>Acesse também no <strong>Mercado Livre</strong> e <strong>Amazon</strong></p>
+        <p>Siga-nos: <strong>Instagram</strong> | <strong>Facebook</strong></p>
+        <p>Presente em: Brasil | EUA | Chile | Itália</p>
+        <p class="aviso-rodape">Loja 100% online. Não possuímos endereço físico.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
