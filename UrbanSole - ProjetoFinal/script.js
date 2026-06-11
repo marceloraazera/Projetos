@@ -115,3 +115,17 @@ function alternarFaq(idDaResposta) {
         }
     }
 }
+
+// Rola suavemente até a seção de produtos, ajustando para o cabeçalho fixo
+function rolarParaProdutos() {
+    const alvo = document.getElementById('estilos-tenis');
+    if (!alvo) return;
+
+    const header = document.querySelector('.cabecalho');
+    const headerAltura = header ? header.offsetHeight : 0;
+
+    const elementoTopo = alvo.getBoundingClientRect().top + window.pageYOffset;
+    const destino = elementoTopo - headerAltura - 16; // pequeno espaçamento
+
+    window.scrollTo({ top: destino, behavior: 'smooth' });
+}

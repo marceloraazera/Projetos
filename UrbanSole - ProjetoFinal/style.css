@@ -14,7 +14,7 @@ body {
     display: flex;
     justify-content: space-between; /* Distribui itens: Esquerda, Centro, Direita */
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: #1d1d1d;
     padding: 15px 5%;
     border-bottom: 1px solid #333;
     position: sticky;
@@ -48,12 +48,12 @@ body {
 }
 
 .barra-pesquisa input:focus {
-    border-color: #ff5e00;
+    border-color: #007bff;
 }
 
 .barra-pesquisa button {
     padding: 10px 20px;
-    background-color: #ff5e00;
+    background-color: #007bff;
     color: white;
     border: none;
     cursor: pointer;
@@ -62,12 +62,12 @@ body {
 }
 
 .barra-pesquisa button:hover {
-    background-color: #e05300;
+    background-color: #0056d6;
 }
 
 /* Botões */
 .btn-primario {
-    background-color: #ff5e00;
+    background-color: #007bff;
     color: white;
     padding: 12px 24px;
     border: none;
@@ -79,7 +79,7 @@ body {
 }
 
 .btn-primario:hover {
-    background-color: #e05300;
+    background-color: #0056d6;
 }
 
 .btn-secundario {
@@ -94,20 +94,20 @@ body {
 }
 
 .btn-secundario:hover {
-    border-color: #ff5e00;
+    border-color: #007bff;
 }
 
 .btn-texto {
     background: none;
     border: none;
-    color: #ff5e00;
+    color: #7ab7ff;
     cursor: pointer;
     text-decoration: underline;
     font-size: 14px;
 }
 
 .btn-texto:hover {
-    color: #ff884d;
+    color: #93c4ff;
 }
 
 .btn-grande {
@@ -151,17 +151,18 @@ body {
 }
 
 .promocao-texto strong {
-    color: #ff5e00;
+    color: #7ab7ff;
 }
 
 .imagem-destaque img {
-    height: 350px;
+    height: 550px;
+    width: 800px;
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.8);
 }
 
 #banner-promocao {
-    background: linear-gradient(90deg, #ff5e00, #ff2a00);
+    background: linear-gradient(90deg, #007bff, #0056d6);
     text-align: center;
     padding: 15px;
     font-weight: bold;
@@ -171,7 +172,7 @@ body {
 
 /* Seções Gerais */
 .secao-escura {
-    background-color: #1a1a1a;
+    background-color: #2e2e2e;
     padding: 60px 5%;
     text-align: center;
 }
@@ -231,7 +232,7 @@ h2 {
 }
 
 .bolinha.ativa {
-    background-color: #ff5e00;
+    background-color: #007bff;
 }
 
 /* Grade de Estilos */
@@ -262,7 +263,7 @@ h2 {
 
 .cartao-estilo h3 {
     margin-bottom: 10px;
-    color: #ff5e00;
+    color: #7ab7ff;
 }
 
 /* Depoimentos */
@@ -289,7 +290,7 @@ h2 {
 
 .cartao-depoimento span {
     font-weight: bold;
-    color: #ff5e00;
+    color: #7ab7ff;
 }
 
 /* FAQ */
@@ -323,7 +324,7 @@ h2 {
 .resposta-faq {
     background-color: #1a1a1a;
     padding: 20px;
-    border-left: 4px solid #ff5e00;
+    border-left: 4px solid #007bff;
     text-align: left;
     margin-top: 5px;
     border-radius: 0 8px 8px 0;
@@ -354,6 +355,14 @@ h2 {
     color: #ccc;
 }
 
+.secao-faq {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
 .caixa-formulario input {
     width: 100%;
     padding: 12px;
@@ -366,7 +375,7 @@ h2 {
 }
 
 .caixa-formulario input:focus {
-    border-color: #ff5e00;
+    border-color: #007bff;
     outline: none;
 }
 
@@ -377,8 +386,8 @@ h2 {
 }
 
 .alerta-sucesso {
-    background-color: rgba(255, 94, 0, 0.1);
-    border: 1px solid #ff5e00;
+    background-color: rgba(0, 123, 255, 0.1);
+    border: 1px solid #007bff;
     padding: 15px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -388,7 +397,7 @@ h2 {
 .rodape {
     background-color: #0a0a0a;
     padding: 40px 5%;
-    text-align: center;
+    text-align: left;
     color: #888;
     border-top: 1px solid #222;
 }
