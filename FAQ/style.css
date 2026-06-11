@@ -1,0 +1,9 @@
+.pergunta {
+    background-color: gray;
+    cursor: pointer;
+    margin: 20px 0;
+}
+.resposta {
+    background-color: lightgray;
+    display: none;
+}
