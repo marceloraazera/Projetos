@@ -1,14 +1,21 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { signOut } from 'firebase/auth';
 import { autenticacao } from '../config/firebaseConfig';
 
-export default function TelaHome() {
+export default function TelaHome({ navigation: navigationProp }) {
+  const navigation = navigationProp || useNavigation();
+
   const fazerLogout = () => {
     signOut(autenticacao);
   };
 
   const nomeUsuario = autenticacao.currentUser?.displayName || 'Usuário';
+
+  const abrirPerfil = () => {
+    navigation.navigate('Perfil');
+  };
 
   return (
     <View style={estilos.background}>
@@ -20,7 +27,7 @@ export default function TelaHome() {
           <Text style={estilos.buttonText}>Sair</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={()=> navigation.navigate('Perfil')}>
+        <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={abrirPerfil}>
             <Text style={estilos.buttonText}>Perfil</Text>
           </TouchableOpacity>
       </View>
