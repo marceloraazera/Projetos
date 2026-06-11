@@ -323,7 +323,6 @@ const estilos = StyleSheet.create({
   },
   titulo: {
     fontSize: 28,
-    fontFamily: 'Poppins_700Bold',
     marginBottom: 24,
     textAlign: 'center',
     color: '#391a35',
@@ -333,7 +332,6 @@ const estilos = StyleSheet.create({
   },
   label: {
     fontSize: 14,
-    fontFamily: 'Poppins_500Medium',
     color: '#7f5777',
     marginBottom: 10,
   },
@@ -344,7 +342,6 @@ const estilos = StyleSheet.create({
     borderColor: '#f0d3e8',
     padding: 16,
     color: '#3b1f3b',
-    fontFamily: 'Poppins_400Regular',
     fontSize: 16,
   },
   centralizado: {
@@ -381,7 +378,6 @@ const estilos = StyleSheet.create({
   },
   buttonText: {
     fontSize: 16,
-    fontFamily: 'Poppins_600SemiBold',
     color: '#ffffff',
   },
   ghostText: {
