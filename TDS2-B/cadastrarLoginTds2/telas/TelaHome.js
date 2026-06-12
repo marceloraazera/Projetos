@@ -1,82 +1,71 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import { signOut } from 'firebase/auth';
 import { autenticacao } from '../config/firebaseConfig';
 
-export default function TelaHome({ navigation: navigationProp }) {
-  const navigation = navigationProp || useNavigation();
-
+export default function TelaHome({ navigation }) {
   const fazerLogout = () => {
     signOut(autenticacao);
   };
 
   const nomeUsuario = autenticacao.currentUser?.displayName || 'Usuário';
 
-  const abrirPerfil = () => {
-    navigation.navigate('Perfil');
-  };
-
   return (
-    <View style={estilos.background}>
-      <View style={estilos.card}>
-        <Text style={estilos.header}>Bem-vindo, {nomeUsuario}!</Text>
-        <Text style={estilos.subtitle}>Você está autenticado.</Text>
-
-        <TouchableOpacity style={estilos.button} onPress={fazerLogout}>
-          <Text style={estilos.buttonText}>Sair</Text>
-        </TouchableOpacity>
-
-        <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={abrirPerfil}>
+    <SafeAreaView style={estilos.safe}>
+      <View style={estilos.container}>
+        <View style={estilos.card}>
+          <View style={estilos.logoContainer}>
+            <Text style={estilos.logoText}>SN</Text>
+          </View>
+          <Text style={estilos.title}>Bem-vindo, {nomeUsuario}!</Text>
+          <TouchableOpacity style={estilos.button} onPress={fazerLogout}>
+            <Text style={estilos.buttonText}>Sair</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={()=> navigation.navigate('Perfil')}>
             <Text style={estilos.buttonText}>Perfil</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={[estilos.button, {marginTop: 10}]} onPress={()=> navigation.navigate('Admin')}>
+            <Text style={estilos.buttonText}>Admin</Text>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </SafeAreaView>
   );
 }
 
 const estilos = StyleSheet.create({
-  background: {
-    flex: 1,
-    backgroundColor: '#e8f0ff',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 20,
-  },
+  safe: { flex: 1, backgroundColor: '#f2f5f8' },
+  container: { flex: 1, justifyContent: 'center', alignItems: 'center', padding: 16 },
   card: {
     width: '100%',
     maxWidth: 420,
     backgroundColor: '#ffffff',
-    borderRadius: 28,
-    padding: 28,
-    shadowColor: '#aac2ff',
-    shadowOffset: { width: 0, height: 12 },
-    shadowOpacity: 0.18,
-    shadowRadius: 24,
-    elevation: 12,
-  },
-  header: {
-    fontSize: 28,
-    fontWeight: '700',
-    color: '#2f4db7',
-    marginBottom: 8,
-  },
-  subtitle: {
-    color: '#6b7aad',
-    marginBottom: 24,
-    fontSize: 15,
-    lineHeight: 22,
-  },
-  button: {
-    backgroundColor: '#4f6abf',
-    borderRadius: 18,
-    paddingVertical: 16,
+    borderRadius: 12,
+    padding: 20,
+    shadowColor: '#000',
+    shadowOpacity: 0.08,
+    shadowRadius: 10,
+    elevation: 4,
     alignItems: 'center',
-    marginTop: 6,
   },
-  buttonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: '700',
+  logoContainer: {
+    alignSelf: 'center',
+    backgroundColor: '#4f46e5',
+    width: 72,
+    height: 72,
+    borderRadius: 36,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom: 12,
   },
+  logoText: { color: '#fff', fontSize: 26, fontWeight: '700' },
+  title: { fontSize: 20, fontWeight: '600', textAlign: 'center', marginBottom: 16, color: '#1f2937' },
+  button: { backgroundColor: '#4f46e5', padding: 12, borderRadius: 8, alignItems: 'center', width: '100%' },
+  buttonText: { color: '#fff', fontWeight: '600' },
 });
